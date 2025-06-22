@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API=axios.create({baseURL:https://production-blood-bank-1.onrender.com/api/v1,
+const API=axios.create({baseURL:'https://production-blood-bank-1.onrender.com/api/v1'
 })
 
 API.interceptors.request.use((req)=>{
