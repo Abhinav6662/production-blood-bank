@@ -9,6 +9,9 @@ const Login=()=>{
   const{loading,error}=useSelector(state=>state.auth)
   return(
     <>
+      
+          console.log("✅ VITE_URL in Login.jsx:", import.meta.env.VITE_URL);
+
     {error&&<span>{toast.error(error)}</span>}
     {loading?(
       <Spinner/>
