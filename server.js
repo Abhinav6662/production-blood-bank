@@ -17,10 +17,7 @@ const app=express();
 connectDB();
 
 
-app.use(cors({
-  origin: ['https://production-blood-bank-gbkr.onrender.com'],
-  credentials: true,
-}));
+app.use(cors());
 app.use(express.json())
 app.use(morgan('dev'))
 
