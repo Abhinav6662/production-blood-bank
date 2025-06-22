@@ -16,9 +16,24 @@ dotenv.config()
 const app=express();
 connectDB();
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://production-blood-bank-gbkr.onrender.com'
+];
 
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+}));
+
+app.options('*', cors()); // Pre-flight support
 app.use(express.json())
-app.use(cors());
 app.use(morgan('dev'))
 
 app.use("/api/v1/auth",auth)
